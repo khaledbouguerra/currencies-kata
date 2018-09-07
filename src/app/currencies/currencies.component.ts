@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CurrenciesService} from "./services/currencies.service";
 import {Router} from "@angular/router";
-import {I_CURRENCY} from "./models/currencies.interface";
+import {I_CURRENCY} from "./interfaces/currencies.interface";
 
 @Component({
     selector: 'app-currencies',
