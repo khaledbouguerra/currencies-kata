@@ -1,0 +1,11 @@
+<div class="card" style="width: 22rem;">
+    <div class="card-body">
+        <h5 class="card-title" style="text-align: center">{{currency.attributes?.name}}</h5>
+        <p> Code: {{currency.attributes?.code}}</p>
+        <p> Name: {{currency.attributes?.name}}</p>
+        <p> Currency type: {{currency.attributes?.currency_type}}</p>
+        <p *ngIf="currency.attributes.code_iso_numeric3"> Code iso numeric3:
+            {{currency.attributes?.code_iso_numeric3}}</p>
+        <p *ngIf="currency.attributes.code_iso_alpha3"> Code iso alpha3: {{currency.attributes?.code_iso_alpha3}}</p>
+    </div>
+</div>

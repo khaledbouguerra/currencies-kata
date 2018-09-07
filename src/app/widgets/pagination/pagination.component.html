@@ -1,0 +1,55 @@
+<div class=" col-2 limit">
+    <div class="form-group">
+        <select class="form-control" id="limit" #t (change)="onLimitChange(t.value)">
+            <option value="10">10</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+
+        </select>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <div class="mx-auto w-60 p-10 ">
+
+
+            <div>
+                <div *ngIf="count > 0">
+
+
+                    <div class="pagination">
+
+                        <!--firstPage-->
+                        <!--<button class="btn" (click)="onFirstPage()" [disabled]="page === 1 || loading"-->
+                        <!--[ngClass]="{ 'disabled': page === 1 || loading }">&lt;First page-->
+                        <!--</button>-->
+                        <!---->
+
+                        <button class="btn" (click)="onPrev()" [disabled]="page === 1 || loading"
+                                [ngClass]="{ 'disabled': page === 1 || loading }">&lt;&lt; Previous
+                        </button>
+
+
+                        <button class="btn"
+                                *ngFor="let pageNum of getPages();let i=index"
+                                (click)="onPage(pageNum)"
+                                [ngClass]="{'active': pageNum === page, 'disabled': loading}">{{ pageNum }}
+                        </button>
+
+                        <button class="btn" (click)="onNext(true)" [disabled]="lastPage() || loading"
+                                [ngClass]="{ 'disabled': lastPage() || loading }">Next &gt;</button>
+
+                        <!--lastPage-->
+                        <!--<button class="btn" (click)="onLastPage(true)" [disabled]="lastPage() || loading"-->
+                        <!--[ngClass]="{ 'disabled': lastPage() || loading }">LastPage &gt;&gt;</button>-->
+                        <!---->
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

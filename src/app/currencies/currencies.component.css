@@ -1,0 +1,19 @@
+.currency-card {
+  margin-top:2%
+}
+span {
+  display: block!important;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.pagination {
+  margin-top:5%
+}
+
+.search{
+  margin-bottom: 5px;
+  margin-top:5px;
+}

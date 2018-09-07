@@ -1,0 +1,32 @@
+/*.active  {*/
+    /*color:blue*/
+/*}*/
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination button {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin:2px 2px
+}
+
+.pagination button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination button:hover:not(.active) {background-color: #ddd;}
+
+.limit {
+    margin-top:10px;
+    padding: 0!important;
+
+}
+
+
+
+

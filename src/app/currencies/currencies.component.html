@@ -1,0 +1,53 @@
+<h1 style="text-align: center">
+    {{ title }}
+</h1>
+<h5 style="text-align: center"><i class="fa fa-spinner fa-spin" *ngIf="loading"></i></h5>
+<div class="row search">
+    <div class="col-4">
+
+
+        <select class="form-control" id="limt" #t (change)="onFilterChange(t.value)">
+            <option value="id">ID</option>
+            <option value="code">Code</option>
+            <option value="name">name</option>
+            <option value="type">type</option>
+
+        </select>
+
+    </div>
+
+
+    <div class=" col-4">
+        <input type="text" class="form-control" id="search" placeholder="Search" [(ngModel)]="searchInput"
+               (ngModelChange)="onValueChange($event)">
+
+    </div>
+</div>
+<div class="row">
+
+    <div *ngFor="let currency of currencies" class="col-6 col-md-3 col-sm-3 col-lg-2">
+        <div class="currency-card">
+            <div class="card card-block bg-faded" (click)="goToDetailsPage(currency.id)">ID: {{currency.id}} , Type:
+                {{currency.type}} <span
+                        *ngIf="currency.attributes.symbol"> Symbol : {{currency.attributes.symbol}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--start pagination -->
+<app-pagination
+        (goPage)="goToPage($event)"
+        (goNext)="onNext($event)"
+        (goPrev)="onPrev($event)"
+        (goToFirstPage)="goToFirstPage($event)"
+        (goToLastPage)="goToLastPage($event)"
+        (selectLimt)="selectLimit($event)"
+        [pagesToShow]="pages"
+        [page]="currentPage"
+        [perPage]="limit"
+        [count]="total"
+        [loading]="loading"
+></app-pagination>
+<!--end pagination-->
