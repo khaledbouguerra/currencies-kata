@@ -33,7 +33,6 @@ export class CurrenciesService {
     getCurrencyById(id: string) {
         return this.httpClient.get(this.rootpath + '/' + id).pipe(
             map(result => {
-                console.log('this is the response', result);
                 return result
             }),
             catchError(error => {

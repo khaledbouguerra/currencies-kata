@@ -36,14 +36,15 @@ export class CurrenciesComponent implements OnInit {
      * load currencies list
      */
     getCurrencies(): void {
+        /**
+         * displaying the spinner
+         * @type {boolean}
+         */
         this.loading = true;
-        console.log('getting currencies again', this.limit);
         this.currenciesService.getCurrencies(this.limit, this.currentPage)
             .subscribe((result: any) => {
                     this.currencies = result.data;
                     this.total = result.meta.total;
-                    console.log('this is the total', this.total);
-                    console.log('this is the result', this.currencies);
                     this.pages = result.meta.pages;
                     this.firstPageLink = result.links.first;
                     this.lastPageLink = result.links.last;
@@ -54,7 +55,6 @@ export class CurrenciesComponent implements OnInit {
                     this.loading = false;
                 },
                 error => {
-                    console.log('oops somthing happend', error);
                     throw new error(error)
                 })
     }
@@ -71,7 +71,6 @@ export class CurrenciesComponent implements OnInit {
      * paginate to the next page
      */
     onNext(e): void {
-        console.log('this is the event onNext', e);
         this.currentPage++;
         this.getCurrencies();
     }
@@ -80,7 +79,6 @@ export class CurrenciesComponent implements OnInit {
      * paginate to the previous page
      */
     onPrev(e): void {
-        console.log('this is the event onPrev', e);
         this.currentPage--;
         this.getCurrencies();
     }
@@ -90,7 +88,6 @@ export class CurrenciesComponent implements OnInit {
      * @param e
      */
     goToFirstPage(e): void {
-        console.log('this is the event', e);
         this.getCurrencies();
     }
 
@@ -99,7 +96,6 @@ export class CurrenciesComponent implements OnInit {
      * @param e
      */
     goToLastPage(e) {
-        console.log('paginating to the last page', e);
         this.getCurrencies();
     }
 
@@ -109,7 +105,6 @@ export class CurrenciesComponent implements OnInit {
      */
     goToPage(pageIndex) {
         this.currentPage = pageIndex;
-        console.log('this is the current page', this.currentPage);
         this.getCurrencies();
     }
 
@@ -118,7 +113,6 @@ export class CurrenciesComponent implements OnInit {
      * @param e
      */
     selectLimit(e: number) {
-        console.log('here we are selecting a limit', e);
         this.limit = e;
         this.getCurrencies();
     }
@@ -134,6 +128,7 @@ export class CurrenciesComponent implements OnInit {
          */
         this.searchInput = '';
         this.filterValue = value;
+        this.currencies=this.data;
 
 
     }
